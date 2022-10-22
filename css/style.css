@@ -533,7 +533,7 @@ body {
   height: 294px;
   z-index: -1;
 } */
-.ficaption {
+.figcaption {
   width: 370px;
   height: 110px;
   background-color: #ffffff;
@@ -560,10 +560,10 @@ body {
 
 .list-portfolio figure:hover .overlay {
   animation: hoverOverlay 2s cubic-bezier(0.4, 0, 0.2, 1) normal both;
-  /* z-index: 2; */
+  z-index: 2;
 }
 .list-portfolio figure:hover figcaption {
-  z-index: 3;
+  z-index: 5;
 }
 
 @keyframes hoverOverlay {
