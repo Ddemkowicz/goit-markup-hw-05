@@ -19,7 +19,7 @@ body {
   color: #212121;
   font-family: "Roboto", sans-serif;
   margin: 0 auto;
-  /* width: 1600px; */
+  z-index: 0;
 }
 
 .container {
@@ -109,7 +109,9 @@ body {
   color: #ffffff;
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
-  transition: all 0.2s;
+  transition-property: background-color, color, box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .logo {
@@ -179,14 +181,21 @@ body {
 .address:focus {
   fill: #2196f3;
   color: #2196f3;
-  transition: all 0.2s;
+  transition-property: fill, color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .address:hover svg,
 .address:focus svg {
   fill: #2196f3;
   color: #2196f3;
-  transition: all 0.2s;
+  transition-property: fill, color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+/* .navigation {
+  position: relative;
+} */
 .navigation li:not(:last-child) {
   margin-right: 46px;
 }
@@ -201,14 +210,27 @@ body {
   font-weight: 500;
   font-size: 14px;
   line-height: 1.14;
+  letter-spacing: 0.02em;
   color: #212121;
 }
 
-.navigation > li > a:hover,
-.navigation > li > a:focus {
+.navigation a:hover,
+.navigation a:focus {
   color: #2196f3;
-  transition: all 0.2s;
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+.navi-border {
+  width: inherit;
+  height: 4px;
+  background: #2196f3;
+  border-radius: 2px;
+  position: relative;
+  bottom: -33px;
+}
+
 .section-1 {
   background-image: linear-gradient(
       rgba(47, 48, 58, 0.4),
@@ -301,6 +323,28 @@ body {
   margin-top: 94px;
   margin-bottom: 50px;
 }
+
+.item-2-s2 .item-list2 {
+  position: relative;
+  width: 370px;
+  height: 294px;
+}
+.item-2-s2 .inner-item-list2 {
+  background: rgba(47, 48, 58, 0.8);
+  color: #ffffff;
+  width: inherit;
+  height: 70px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 27px;
+  position: absolute;
+  bottom: 0;
+}
+
 .background-s3 {
   background-color: #f5f4fa;
 }
@@ -374,7 +418,9 @@ body {
 .footer svg:focus {
   background-color: #2196f3;
   fill: #ffffff;
-  transition: all 0.2s;
+  transition-property: background-color, fill;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .footer-social {
   display: flex;
@@ -432,15 +478,18 @@ body {
 .icon svg:hover,
 .icon svg:focus {
   fill: #2196f3;
-
-  transition: all 0.2s;
+  transition-property: fill;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .list-portfolio {
+  background-color: #ffffff;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   row-gap: 30px;
+  z-index: 5;
 }
 .list-portfolio li {
   cursor: pointer;
@@ -449,16 +498,22 @@ body {
 .list-portfolio li:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
-  transition: all 0.2s;
+  transition-property: box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .list-portfolio figure {
   background: #ffffff;
   border: 1px solid #eeeeee;
   margin: 0;
+  position: relative;
 }
+
 .list-portfolio figcaption {
   margin: 0;
   padding: 20px 24px;
+  background-color: #ffffff;
+  z-index: 5;
 }
 .list-portfolio h3 {
   font-weight: 700;
@@ -472,6 +527,57 @@ body {
   line-height: 1.87;
   color: #757575;
   margin: 0;
+}
+/* .img {
+  width: 370px;
+  height: 294px;
+  z-index: -1;
+} */
+.ficaption {
+  width: 370px;
+  height: 110px;
+  background-color: #ffffff;
+  z-index: 5;
+}
+.overlay {
+  width: 370px;
+  height: 294px;
+  background-color: rgba(33, 150, 243, 0.9);
+  position: absolute;
+  top: 300px;
+  z-index: -1;
+}
+
+.overlay p {
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.03em;
+  text-align: left;
+  padding: 49px 45px 49px 24px;
+}
+
+.list-portfolio figure:hover .overlay {
+  animation: hoverOverlay 2s cubic-bezier(0.4, 0, 0.2, 1) normal both;
+  /* z-index: 2; */
+}
+.list-portfolio figure:hover figcaption {
+  z-index: 3;
+}
+
+@keyframes hoverOverlay {
+  0% {
+    position: absolute;
+    top: 300px;
+    z-index: -1;
+  }
+
+  100% {
+    position: absolute;
+    top: 0;
+    z-index: 2;
+  }
 }
 
 .list-style {
