@@ -35,7 +35,6 @@ body {
 
 .style-head {
   display: flex;
-
   border-bottom: 1px solid #ececec;
   justify-content: center;
 }
@@ -229,7 +228,7 @@ body {
 .navi-border-portfolio::after {
   content: " ";
   display: block;
-  width: 53px;
+  width: 58px;
   height: 4px;
   border: 2px solid #2196f3;
   border-radius: 2px;
